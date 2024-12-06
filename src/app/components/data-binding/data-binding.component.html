@@ -1,0 +1,107 @@
+<div class="row">
+    <!-- interpolation and property binding eg -->
+    <div [class]="class_bg_color" class="card col-6" style="width: 18rem;">
+        <img [src]="imageSrc" class="card-img-top" alt="">
+        <div class="card-body">
+            <h5 class="card-title">{{id}}. {{firstName +' '+lastName}}</h5>
+
+            <p class="card-text">{{desc}}</p>
+            <a href="#" class="btn btn-primary btn-sm" (click)="View()">View</a>
+        </div>
+    </div>
+
+    <!-- event binding eg -->
+    <div class="row m-4 col-6">
+        <div class="col-3">
+            <div class="form-control">
+                <h6>City:</h6>
+                <select class="form-control" name="citydd" id="citydd" (change)="OnCityClick()">
+                    <option value="Surat">Surat</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Pune">Pune</option>
+                </select>
+            </div>
+            <label class="m-2" for="selectedCity">selectedcity: {{selectedCity}}</label>
+            <div class="form-control">
+                <h6>SelectedCity:</h6>
+                <select class="form-control" [(ngModel)]="selectedCity" name="selectedcity" id="selectedcity">
+                    <option value="Surat">Surat</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Pune">Pune</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-3">
+            <label for="firstName">FirstName: </label>
+            <input type="text" [(ngModel)]="firstName">
+
+            <label for="lastName">LastName: </label>
+            <input type="text" [(ngModel)]="lastName">
+
+            <label for="desc">desc: </label>
+            <textarea rows="4" cols="50" type="text" texta [(ngModel)]="desc"></textarea>
+
+        </div>
+    </div>
+    <hr class="m-4" width="5">
+    <div class="row m-8">
+        <div class="col-3">
+            <div class="row">
+                <button class="col-4 btn btn-primary m-2" type="submit" (click)="showdiv()">Show
+                    div</button>
+                <button class="col-4 btn btn-secondary m-2" type="submit" (click)="hidediv()">Hide
+                    div</button>
+                <span class="col-6"><label for="hidedimessage">{{divHiddenMsg}}</label></span>
+            </div>
+            <div class="bg-body bg-danger" style="color: blueviolet; border: 2px solid black;" *ngIf="isDivHide">
+                <h1>Hide the div </h1>
+            </div>
+        </div>
+        <div class=" col-3 m-4">
+            <div *ngIf="num1===num2">
+                <h3>Make n1 === n2</h3>
+            </div>
+            <p> This div will show when num1===num2</p>
+            <input class="form-control" type="text" name="" id="" placeholder="num1" [(ngModel)]="num1">
+            <input class="form-control" type="text" name="" id="" placeholder="num2" [(ngModel)]="num2">
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+            <h6>City:</h6>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let item of cityList">{{item}}</li>
+            </ul>
+        </div>
+        <div class="col-3 m-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Srno</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>City</th>
+                        <th>ContactNo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of empArray; let srno = index">
+                        <td>{{srno + 1}}</td>
+                        <td>{{item.fname}}</td>
+                        <td>{{item.lname}}</td>
+                        <td>{{item.city}}</td>
+                        <td>{{item.contactno}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
