@@ -1,8 +1,47 @@
 <div class="row">
-    <div class="col-3 p-3" [ngClass]="div1Color" ]>
+    <div class="col-3 p-3" [ngClass]="div1Color">
         <h1>Div1</h1>
     </div>
-    <div class="col-3 p-3">
+    <div class="col-3 p-3" [ngClass]="isChecked==true?'bg-primary':'bg-danger'">
         <h1>Div2</h1>
+    </div>
+    <div class="col-3 p-3" [ngClass]="div3Color">
+        <h1>Div3</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 p-3" [ngClass]="div1Color">
+        <button class="btn btn-primary m-1" type="button" (click)="addPrimarycolor('bg-primary')">Add Primary</button>
+        <button class="btn btn-danger m-1" type="button" (click)="addDangercolor('bg-danger')">Add Danger</button>
+    </div>
+    <div class="col-3 p-3">
+        <input class="form-check" type="checkbox" [(ngModel)]="isChecked"> Click to chage color!
+        --{{isChecked }}
+    </div>
+    <div class="col-3 p-3">
+        <p>add bg class name to change div3 color</p>
+        <input type="text" [(ngModel)]="div3Color">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3" [ngStyle]="{'background-color': div4Color}">
+        <h1>Div4</h1>
+    </div>
+    <div class="col-3">
+        <h1>Div5</h1>
+    </div>
+    <div class="col-3" [ngStyle]="myCss">
+        <h1>Div6</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <p>using [ng-style]="'elementproperty':classproperty"</p>
+        <button class="btn btn-success m-1" type="button" (click)="addGreenColor('green')">Green</button>
+        <button class="btn btn-primary m-1" type="button" (click)="addBlueColor('blue')">BLue</button>
+    </div>
+    <div class="col-3">
+        <h1>Div6</h1>
     </div>
 </div>

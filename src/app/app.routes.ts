@@ -1,3 +1,17 @@
 import { Routes } from '@angular/router';
+import { AdminComponent } from './components/admin/admin.component';
+import { UserComponent } from './components/user/user.component';
+import { DataBindingComponent } from './components/data-binding/data-binding.component';
+import { ClassBondingComponent } from './components/class-bonding/class-bonding.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactusComponent } from './components/contactus/contactus.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+
+    { path: 'admin', component: AdminComponent },
+    { path: 'user', component: UserComponent },
+    { path: 'databinding', component: DataBindingComponent },
+    { path: 'classbonding', component: ClassBondingComponent },
+    { path: 'about', component: AboutComponent },
+    { path: 'contactus', component: ContactusComponent },
+];
