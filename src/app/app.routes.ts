@@ -5,9 +5,12 @@ import { DataBindingComponent } from './components/data-binding/data-binding.com
 import { ClassBondingComponent } from './components/class-bonding/class-bonding.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
 
+    { path: '', component: HomeComponent },
+    { path: 'home', component: HomeComponent },
     { path: 'admin', component: AdminComponent },
     { path: 'user', component: UserComponent },
     { path: 'databinding', component: DataBindingComponent },
