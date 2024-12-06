@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/home">Angular</a>
+    <a class="navbar-brand" routerLink="/home" routerLinkActive="active" [ngStyle]="{'color': linkColor}"
+      (click)="routerLinkColor('yellow')">Angular</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,30 +9,45 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
+          <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active"
+            [ngStyle]="{'color': linkColor}" (click)="routerLinkColor('red')">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about">About</a>
+          <a class="nav-link" routerLink="/about" routerLinkActive="active" router [ngStyle]="{'color': linkColor}"
+            (click)="routerLinkColor('blue')">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/contactus">ContactUs</a>
+          <a class="nav-link" routerLink="/contactus" routerLinkActive="active" [ngStyle]="{'color': linkColor}"
+            (click)="routerLinkColor('green')">ContactUs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/admin">Admin</a>
+          <a class="nav-link" routerLink="/admin" routerLinkActive="active" [ngStyle]="{'color': linkColor}"
+            (click)="routerLinkColor('purple')">Admin</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user">User</a>
+          <a class="nav-link" routerLink="/user" routerLinkActive="active" [ngStyle]="{'color': linkColor}"
+            (click)="routerLinkColor('brown')">User</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/databinding">Data-Binding</a>
+          <a class="nav-link" routerLink="/databinding" routerLinkActive="active" [ngStyle]="{'color': linkColor}"
+            (click)="routerLinkColor('light-blue')">Data-Binding</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/classbonding">class-Bonding</a>
+          <a class="nav-link" routerLink="/classbonding" routerLinkActive="active" [ngStyle]="{'color': linkColor}"
+            (click)="routerLinkColor('dark-blue')">Class-Bonding</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/controlflow" routerLinkActive="active" [ngStyle]="{'color': linkColor}"
+            (click)="routerLinkColor('pink')">Control-Flow</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-
+<div class="container">
+  <p>Navigation using method invoke on button click</p>
+  <button class="btn btn-primary m-2" type="button" (click)="gotoAdmin()">Admin</button>
+  <button class="btn btn-primary m-2" type="button" (click)="gotoUser()">User</button>
+</div>
 <router-outlet />

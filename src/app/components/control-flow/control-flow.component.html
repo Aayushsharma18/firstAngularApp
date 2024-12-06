@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-3 p-3">
+        @if (div1hide==true) {
+        <div>
+            <h1>Div1</h1>
+        </div>
+        }
+    </div>
+    <div class="col-3 p-3">
+        <h1>Div2</h1>
+    </div>
+    <div class="col-3 p-3">
+        <h1>Div3</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 p-3">
+        <button class="btn btn-primary m-1" type="button" (click)="showDiv()">Show</button>
+        <button class="btn btn-danger m-1" type="button" (click)="hideDiv()">Hide</button>
+    </div>
+    <div class="col-3 p-3">
+        <input class="form-check" type="checkbox"> Click to chage color!
+
+    </div>
+    <div class="col-3 p-3">
+        <p>add bg class name to change div3 color</p>
+        <input type="text">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <h1>Div4</h1>
+    </div>
+    <div class="col-3">
+        <h1>Div5</h1>
+    </div>
+    <div class="col-3">
+        <h1>Div6</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <p>using [ng-style]="'elementproperty':classproperty"</p>
+        <button class="btn btn-success m-1" type="button">Green</button>
+        <button class="btn btn-primary m-1" type="button">BLue</button>
+    </div>
+    <div class="col-3">
+        <h1>Div6</h1>
+    </div>
+</div>

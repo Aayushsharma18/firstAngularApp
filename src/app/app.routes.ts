@@ -6,6 +6,7 @@ import { ClassBondingComponent } from './components/class-bonding/class-bonding.
 import { AboutComponent } from './components/about/about.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { HomeComponent } from './components/home/home.component';
+import { ControlFlowComponent } from './components/control-flow/control-flow.component';
 
 export const routes: Routes = [
 
@@ -17,4 +18,5 @@ export const routes: Routes = [
     { path: 'classbonding', component: ClassBondingComponent },
     { path: 'about', component: AboutComponent },
     { path: 'contactus', component: ContactusComponent },
+    { path: 'controlflow', component: ControlFlowComponent },
 ];
