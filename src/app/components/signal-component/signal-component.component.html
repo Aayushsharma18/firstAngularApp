@@ -1,0 +1,39 @@
+<div class="container">
+
+
+  <div class="container">
+    <h4>Angular Signal</h4>
+    <p>signal detects changes even on change detection turned off (changedetection: changedetectionstratigy.OnPush)</p>
+    <p>these are signal variables</p>
+    <h5>{{firstName()}}</h5>
+    <h5>{{lastName()}}</h5>
+
+    <p>after 2 sec this var will change to python</p>
+    <p>{{course}}</p>
+
+    <p>{{counter()}}</p>
+    <button class="btn btn-primary" type="button" (click)="OnCounterIndrease()"> count++ </button>
+
+  </div>
+
+  <hr>
+  <div class="container row">
+    <h4>Linked Signal</h4>
+    <p>this is linked signal.</p>
+    <div class="col-3">
+
+      <p>{{fullName()}}</p>
+      <button type="button" class="btn btn-primary" (click)="OnChangeName()">change Name</button>
+    </div>
+
+
+    <div class="col-3">
+
+      <p>{{email()}}</p>
+      <button type="button" class="btn btn-primary" (click)="OnChangeId()">change Id</button>
+    </div>
+
+  </div>
+
+
+</div>
