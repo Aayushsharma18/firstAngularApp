@@ -1,51 +1,85 @@
-<div class="row">
+<div class="container">
+  <div class="row">
     <div class="col-3 p-3">
-        @if (div1hide==true) {
-        <div>
-            <h1>Div1</h1>
-        </div>
+      @if (div1hide==true) {
+      <div class="bg-body-secondary">
+        <h1>Div1</h1>
+      </div>
+      }
+    </div>
+    <div class="col-3 p-3">
+      <h6>Div2</h6>
+      @if (isChecked==true) {
+
+      <div class="bg-primary">
+        <h1>checked</h1>
+      </div>
+      }@else {
+
+      <div class="bg-success">
+        <h1>unchecked</h1>
+      </div>
+      }
+    </div>
+    <div class="col-3 p-3">
+      <h6>Div3</h6>
+      @if(day=='Mon'){
+      <span>Monday</span>
+      }@else if (day=='Tue') {
+      <span>Tuesday</span>
+
+      }@else if (day=='Wed') {
+      <span>Wednesday</span>
+
+      }@else if (day=='Thru') {
+      <span>Thrusday</span>
+
+      }@else if (day=='Fri') {
+      <span>Friday</span>
+
+      }@else if (day=='Sat') {
+      <span>Saturday</span>
+
+      }@else {
+      <span>Enter Valid Day</span>
+
+      }
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 p-3">
+      <p>control flow statement in angular</p>
+      <button class="btn btn-primary m-1" type="button" (click)="showDiv()">Show</button>
+      <button class="btn btn-danger m-1" type="button" (click)="hideDiv()">Hide</button>
+    </div>
+    <div class="col-3 p-3">
+      <input class="form-check" type="checkbox" [(ngModel)]="isChecked"> Click to chage color!
+
+    </div>
+    <div class="col-3 p-3">
+      <input type="text" [(ngModel)]="day">
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-3">
+      <h1>Div4</h1>
+      <select class="form-control m-1">
+        @for (item of cityList; track $index) {
+        <option class="list-group-item" value="index">{{item}} </option>
         }
+      </select>
+      <select class="form-control m-1" [(ngModel)]="selectedCity">
+        @for (item of cityList; track $index) {
+        <option class="list-group-item">{{item}} </option>
+        }
+      </select>
+      <label class="m-1">{{selectedCity}}</label>
     </div>
-    <div class="col-3 p-3">
-        <h1>Div2</h1>
-    </div>
-    <div class="col-3 p-3">
-        <h1>Div3</h1>
-    </div>
-</div>
-<div class="row">
-    <div class="col-3 p-3">
-        <button class="btn btn-primary m-1" type="button" (click)="showDiv()">Show</button>
-        <button class="btn btn-danger m-1" type="button" (click)="hideDiv()">Hide</button>
-    </div>
-    <div class="col-3 p-3">
-        <input class="form-check" type="checkbox"> Click to chage color!
 
-    </div>
-    <div class="col-3 p-3">
-        <p>add bg class name to change div3 color</p>
-        <input type="text">
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-3">
-        <h1>Div4</h1>
-    </div>
-    <div class="col-3">
-        <h1>Div5</h1>
-    </div>
-    <div class="col-3">
-        <h1>Div6</h1>
-    </div>
-</div>
-<div class="row">
-    <div class="col-3">
-        <p>using [ng-style]="'elementproperty':classproperty"</p>
-        <button class="btn btn-success m-1" type="button">Green</button>
-        <button class="btn btn-primary m-1" type="button">BLue</button>
-    </div>
-    <div class="col-3">
-        <h1>Div6</h1>
-    </div>
-</div>
+
+  </div>
