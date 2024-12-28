@@ -8,6 +8,7 @@ import { ContactusComponent } from './components/contactus/contactus.component';
 import { HomeComponent } from './components/home/home.component';
 import { ControlFlowComponent } from './components/control-flow/control-flow.component';
 import { SignalComponentComponent } from './components/signal-component/signal-component.component';
+import { TemplateFormComponent } from './components/template-form/template-form.component';
 
 export const routes: Routes = [
 
@@ -21,4 +22,5 @@ export const routes: Routes = [
   { path: 'contactus', component: ContactusComponent },
   { path: 'controlflow', component: ControlFlowComponent },
   { path: 'signal', component: SignalComponentComponent },
+  { path: 'templateform', component: TemplateFormComponent },
 ];
