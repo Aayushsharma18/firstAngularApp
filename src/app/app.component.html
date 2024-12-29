@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/home" routerLinkActive="active" [ngStyle]="{'color': linkColor}"
-      (click)="routerLinkColor('yellow')">Angular</a>
+    <a class="navbar-brand" routerLink="https://angular.dev/tools/cli" routerLinkActive="active"
+      [ngStyle]="{'color': linkColor}" (click)="routerLinkColor('yellow')">Angular</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -47,6 +47,10 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/templateform" routerLinkActive="active" [ngStyle]="{'color': linkColor}"
             (click)="routerLinkColor('cyan')">Template-Form</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/reactiveform" routerLinkActive="active" [ngStyle]="{'color': linkColor}"
+            (click)="routerLinkColor('darkgreen')">Reactive-Form</a>
         </li>
       </ul>
     </div>

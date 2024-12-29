@@ -1,0 +1,103 @@
+<div class="container">
+    <h1>User Form</h1>
+    <form [formGroup]="userForm" class="row g-3 needs-validation" novalidate (ngSubmit)="OnUserSave()">
+        <span class="text-danger">Fields with Aistrik (*) are required</span>
+        <div class="col-md-4">
+            <label class="form-label">First name</label> <span class="text-danger">*</span>
+            <input type="text" name="firstName" formControlName="firstName" required class="form-control">
+            <div class="text-danger">
+                @if(userForm.controls['firstName'].errors?.['required'] && userForm.controls['firstName'].touched &&
+                userForm.controls['firstName'].dirty){
+                <span> FirstName is Required</span>
+                }
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Last name</label><span class="text-danger">*</span>
+            <input type="text" name="lastName" formControlName="lastName" required minlength="4" class="form-control">
+            <div class="text-danger">
+                <span
+                    *ngIf="userForm.controls['lastName']?.errors?.['required'] && userForm.controls ['lastName'].touched && userForm.controls ['lastName'].dirty">LastName
+                    is Required</span>
+                <span
+                    *ngIf="userForm.controls ['lastName'].errors?.['minlength'] && userForm.controls ['lastName'].touched && userForm.controls ['lastName'].dirty">Minimum
+                    4 char Required</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Username</label><span class="text-danger">*</span>
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
+                <input type="text" class="form-control" aria-describedby="inputGroupPrepend" formControlName="userName"
+                    pattern=".*@gmail.com" required name="userName">
+            </div>
+            <div class="text-danger">
+                <span
+                    *ngIf="userForm.controls['userName'].errors?.['required'] && userForm.controls['userName'].touched && userForm.controls['userName'].dirty ">Email
+                    is
+                    Required</span>
+                <span *ngIf="userForm.controls['userName'].errors?.['pattern']">Email is Invalid</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">City</label><span class="text-danger">*</span>
+            <input type="text" name="city" formControlName="city" class="form-control">
+            <div class="text-danger">
+                <span
+                    *ngIf=" userForm.controls['city'].errors && userForm.controls['city'].touched && userForm.controls['city'].dirty ">Please
+                    provide a valid city.</span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">State</label><span class="text-danger">*</span>
+            <select class="form-select" name="state" formControlName="state" required>
+                <option selected disabled value="">Choose...</option>
+                <option value="Maharastra">Maharastra</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Goa">Goa</option>
+                <option value="Punjab">Punjab</option>
+            </select>
+            <div class="text-danger">
+                <span
+                    *ngIf="userForm.controls['state'].errors?.['required'] && userForm.controls['state'].touched">Please
+                    select a valid state.</span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Zip</label><span class="text-danger">*</span>
+            <input type="text" class="form-control" name="zipCode" formControlName="zipCode" required minlength="6"
+                pattern="^[0-9]+$">
+            <div class="text-danger">
+                <span class="m-2"
+                    *ngIf="userForm.controls ['zipCode'].errors?.['required'] && userForm.controls ['zipCode'].touched && userForm.controls ['zipCode'].dirty">ZipCode
+                    Required</span>
+                <span class="m-2"
+                    *ngIf="userForm.controls ['zipCode'].errors?.['minlength'] && userForm.controls ['zipCode'].touched && userForm.controls ['zipCode'].dirty">Invalid
+                    ZipCode</span>
+                <span class="m-2"
+                    *ngIf="userForm.controls ['zipCode'].errors?.['pattern'] && userForm.controls ['zipCode'].touched && userForm.controls ['zipCode'].dirty">ZipCode
+                    should
+                    numeric</span>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" formControlName="isTermAgreed"
+                    name="IsTermAgreed" required>
+                <label class="form-check-label" for="invalidCheck">
+                    Agree to terms and conditions
+                </label>
+                <div class="text-danger">
+                    <span
+                        *ngIf="userForm.controls['isTermAgreed'].errors?.['required'] && userForm.controls['isTermAgreed'].touched">You
+                        must agree before
+                        submitting.</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" [disabled]="userForm.invalid" type="button">Submit
+                form</button>
+        </div>
+    </form>
+</div>

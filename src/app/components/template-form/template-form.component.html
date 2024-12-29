@@ -36,9 +36,10 @@
         </div>
         <div class="col-md-6">
             <label class="form-label">City</label><span class="text-danger">*</span>
-            <input type="text" name="city" #city="ngModel" class="form-control" [(ngModel)]="userObj.city">
+            <input type="text" name="city" #city="ngModel" class="form-control" [(ngModel)]="userObj.city" required>
             <div class="text-danger">
-                <span *ngIf="city.touched && city.dirty ">Please provide a valid city.</span>
+                <span *ngIf="city.errors?.['required'] && city.touched && city.dirty ">Please provide a valid
+                    city.</span>
             </div>
         </div>
         <div class="col-md-3">
