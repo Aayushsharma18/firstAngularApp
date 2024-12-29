@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="card p-3">
+        <h4>Mock api url:</h4>
+        <a href="https://jsonplaceholder.typicode.com/">https://jsonplaceholder.typicode.com/</a>
+        <a
+            href="https://app.beeceptor.com/mock-server/fake-store-api">https://app.beeceptor.com/mock-server/fake-store-api</a>
+        <p> Note: To integrate api in angular</p>
+        <p>set provideHTTPClient() in the provider array [] of app.config.ts file. To initialize the HTTPClient instance
+        </p>
+        <p>create private instance of the HTTP client in the constructor</p>
+    </div>
+    <div class="m-4">
+        <h5>GET API</h5>
+        <button type="button" class="btn btn-success" (click)="getUsers()">Load Users</button>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Srno</th>
+                        <th>Name</th>
+                        <th>UserName</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Website</th>
+                        <th>Company</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (item of userList; track $index) {
+                    <tr>
+                        <td>{{$index +1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.username}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.address.city}}
+                            {{item.address.street}}
+                            {{item.address.zipcode}}
+                        </td>
+                        <td>{{item.phone}}</td>
+                        <td>{{item.website}}</td>
+                        <td>{{item.company.name}}</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+
+            <button class="btn btn-success" (click)="getProducts()">Load Products</button>
+            <select class="m-4 form-control"> Products
+                <option selected disabled value="">Choose...</option>
+                @for (item of productList; track $index) {
+                <option [value]="item.product_id">{{item.name}}</option>
+                }
+            </select>
+        </div>
+    </div>
+</div>
