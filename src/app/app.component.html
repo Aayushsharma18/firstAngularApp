@@ -57,13 +57,14 @@
             API
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/api" [ngStyle]="{'color': linkColor}"
+            <li><a class="dropdown-item" routerLink="/getapi" [ngStyle]="{'color': linkColor}"
                 (click)="routerLinkColor('darkblue')">GET</a></li>
-            <li><a class="dropdown-item" href="#">POST</a></li>
+            <li><a class="dropdown-item" routerLink="/postapi" [ngStyle]="{'color': linkColor}"
+                (click)="routerLinkColor('darkyellow')">POST</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="#">PUT</a></li>
+            <li><a class="dropdown-item">PUT</a></li>
             <li><a class="dropdown-item" href="#">DELETE</a></li>
           </ul>
         </li>

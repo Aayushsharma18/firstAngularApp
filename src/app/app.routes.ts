@@ -11,6 +11,7 @@ import { SignalComponentComponent } from './components/signal-component/signal-c
 import { TemplateFormComponent } from './components/template-form/template-form.component';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { APIComponent } from './components/api/api.component';
+import { PostapiComponent } from './components/postapi/postapi.component';
 
 export const routes: Routes = [
 
@@ -26,5 +27,6 @@ export const routes: Routes = [
   { path: 'signal', component: SignalComponentComponent },
   { path: 'templateform', component: TemplateFormComponent },
   { path: 'reactiveform', component: ReactiveFormComponent },
-  { path: 'api', component: APIComponent },
+  { path: 'getapi', component: APIComponent },
+  { path: 'postapi', component: PostapiComponent },
 ];
