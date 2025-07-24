@@ -1,10 +1,10 @@
 <div class="container">
     <h1>User Form</h1>
-    <form [formGroup]="userForm" class="row g-3 needs-validation" novalidate (ngSubmit)="OnUserSave()">
+    <form [formGroup]="userForm" class="row g-3 needs-validation" (ngSubmit)="OnUserSave()">
         <span class="text-danger">Fields with Aistrik (*) are required</span>
         <div class="col-md-4">
             <label class="form-label">First name</label> <span class="text-danger">*</span>
-            <input type="text" name="firstName" formControlName="firstName" required class="form-control">
+            <input type="text" name="firstName" formControlName="firstName" class="form-control">
             <div class="text-danger">
                 @if(userForm.controls['firstName'].errors?.['required'] && userForm.controls['firstName'].touched &&
                 userForm.controls['firstName'].dirty){
@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-4">
             <label class="form-label">Last name</label><span class="text-danger">*</span>
-            <input type="text" name="lastName" formControlName="lastName" required minlength="4" class="form-control">
+            <input type="text" name="lastName" formControlName="lastName" minlength="4" class="form-control">
             <div class="text-danger">
                 <span
                     *ngIf="userForm.controls['lastName']?.errors?.['required'] && userForm.controls ['lastName'].touched && userForm.controls ['lastName'].dirty">LastName
@@ -29,7 +29,7 @@
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
                 <input type="text" class="form-control" aria-describedby="inputGroupPrepend" formControlName="userName"
-                    pattern=".*@gmail.com" required name="userName">
+                    pattern=".*@gmail.com" name="userName">
             </div>
             <div class="text-danger">
                 <span
@@ -65,7 +65,7 @@
         </div>
         <div class="col-md-3">
             <label class="form-label">Zip</label><span class="text-danger">*</span>
-            <input type="text" class="form-control" name="zipCode" formControlName="zipCode" required minlength="6"
+            <input type="text" class="form-control" name="zipCode" formControlName="zipCode" minlength="6"
                 pattern="^[0-9]+$">
             <div class="text-danger">
                 <span class="m-2"
@@ -96,7 +96,7 @@
             </div>
         </div>
         <div class="col-12">
-            <button class="btn btn-primary" [disabled]="userForm.invalid" type="button">Submit
+            <button class="btn btn-primary" [disabled]="userForm.invalid" type="submit">Submit
                 form</button>
         </div>
     </form>

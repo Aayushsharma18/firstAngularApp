@@ -10,6 +10,19 @@ import { FormControl, FormControlName, FormGroup, ReactiveFormsModule, Validator
 })
 export class ReactiveFormComponent {
 
+  /**
+   *
+   */
+  constructor() {
+    // this.userForm.controls['state'].disable(); //To disable the state field
+
+    /*
+        setTimeout(() => {
+          this.userForm.controls['state'].enable(); // To enable the state field after 5 seconds
+        }, 5000); // Simulating an async operation to enable the state field after 5 seconds
+    */
+
+  }
   userForm: FormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),
@@ -21,7 +34,7 @@ export class ReactiveFormComponent {
   });
 
   OnUserSave() {
-    const userForm = this.userForm;
+    const userForm = this.userForm.value;
     debugger;
   }
 }

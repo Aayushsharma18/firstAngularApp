@@ -12,6 +12,8 @@ import { TemplateFormComponent } from './components/template-form/template-form.
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { APIComponent } from './components/api/api.component';
 import { PostapiComponent } from './components/postapi/postapi.component';
+import { ResourcesApisComponent } from './components/resources-apis/resources-apis.component';
+import { AngularServiceComponent } from './components/api/angular-service/angular-service.component';
 
 export const routes: Routes = [
 
@@ -29,4 +31,6 @@ export const routes: Routes = [
   { path: 'reactiveform', component: ReactiveFormComponent },
   { path: 'getapi', component: APIComponent },
   { path: 'postapi', component: PostapiComponent },
+  { path: 'resourceapis', component: ResourcesApisComponent },
+  { path: 'angularservices', component: AngularServiceComponent },
 ];
