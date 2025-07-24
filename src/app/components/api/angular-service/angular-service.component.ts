@@ -16,7 +16,7 @@ export class AngularServiceComponent {
     // this.getAllComments();
     this.getAllcommentsFromService(); //service method call
   }
-  url: string = "url";
+  url: string = "https://jsonplaceholder.typicode.com/posts";
   http = inject(HttpClient);
 
   commentlist: any[] = [];
