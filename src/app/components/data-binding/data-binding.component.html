@@ -1,55 +1,58 @@
-<div class="row">
-    <!-- interpolation and property binding eg -->
-    <div [class]="class_bg_color" class="card col-6" style="width: 18rem;">
-        <img [src]="imageSrc" class="card-img-top" alt="">
-        <div class="card-body">
-            <h5 class="card-title">{{id}}. {{firstName +' '+lastName}}</h5>
+<div class="container">
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Card Section -->
+            <div class="col-md-4 mb-4">
+                <div [class]="class_bg_color" class="card h-100 shadow-sm">
+                    <img [src]="imageSrc" class="card-img-top" alt="User Image" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{id}}. {{firstName}} {{lastName}}</h5>
+                        <p class="card-text">{{desc}}</p>
+                        <a href="#" class="btn btn-primary btn-sm" (click)="View()">View</a>
+                    </div>
+                </div>
+            </div>
 
-            <p class="card-text">{{desc}}</p>
-            <a href="#" class="btn btn-primary btn-sm" (click)="View()">View</a>
+            <!-- City Dropdown Section -->
+            <div class="col-md-4 mb-4">
+                <div class="form-group">
+                    <label class="form-label">City (event binding):</label>
+                    <select class="form-control mb-3" name="citydd" (change)="OnCityClick()">
+                        <option *ngFor="let city of ['Surat','Mumbai','Chennai','Kolkata','Pune']" [value]="city">
+                            {{city}}</option>
+                    </select>
+
+                    <label class="form-label">Selected City (two-way):</label>
+                    <select class="form-control" [(ngModel)]="selectedCity" name="selectedcity">
+                        <option *ngFor="let city of ['Surat','Mumbai','Chennai','Kolkata','Pune']" [value]="city">
+                            {{city}}</option>
+                    </select>
+
+                    <div class="mt-2">Selected City: <strong>{{selectedCity}}</strong></div>
+                </div>
+            </div>
+
+            <!-- Input Fields Section -->
+            <div class="col-md-4 mb-4">
+                <div class="form-group">
+                    <label for="firstName" class="form-label mt-2">First Name</label>
+                    <input class="form-control" type="text" [(ngModel)]="firstName" />
+
+                    <label for="lastName" class="form-label mt-2">Last Name</label>
+                    <input class="form-control" type="text" [(ngModel)]="lastName" />
+
+                    <label for="desc" class="form-label mt-2">Description</label>
+                    <textarea class="form-control" rows="4" [(ngModel)]="desc"></textarea>
+                </div>
+            </div>
         </div>
+
+        <hr class="my-4" />
     </div>
 
-    <!-- event binding eg -->
-    <div class="row m-4 col-6">
-        <div class="col-3">
-            <div class="form-control">
-                <h6>City:</h6>
-                <select class="form-control" name="citydd" id="citydd" (change)="OnCityClick()">
-                    <option value="Surat">Surat</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Chennai">Chennai</option>
-                    <option value="Kolkata">Kolkata</option>
-                    <option value="Pune">Pune</option>
-                </select>
-            </div>
-            <label class="m-2" for="selectedCity">selectedcity: {{selectedCity}}</label>
-            <div class="form-control">
-                <h6>SelectedCity:</h6>
-                <select class="form-control" [(ngModel)]="selectedCity" name="selectedcity" id="selectedcity">
-                    <option value="Surat">Surat</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Chennai">Chennai</option>
-                    <option value="Kolkata">Kolkata</option>
-                    <option value="Pune">Pune</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-3">
-            <label for="firstName">FirstName: </label>
-            <input type="text" [(ngModel)]="firstName">
 
-            <label for="lastName">LastName: </label>
-            <input type="text" [(ngModel)]="lastName">
-
-            <label for="desc">desc: </label>
-            <textarea rows="4" cols="50" type="text" texta [(ngModel)]="desc"></textarea>
-
-        </div>
-    </div>
-    <hr class="m-4" width="5">
     <div class="row m-8">
-        <div class="col-3">
+        <div class="col-3 m-4">
             <div class="row">
                 <button class="col-4 btn btn-primary m-2" type="submit" (click)="showdiv()">Show
                     div</button>
@@ -71,37 +74,57 @@
         </div>
 
     </div>
-
-    <div class="row">
-        <div class="col-3">
-            <h6>City:</h6>
-            <ul class="list-group">
-                <li class="list-group-item" *ngFor="let item of cityList">{{item}}</li>
-            </ul>
+    <div class="container py-4">
+        <div class="row justify-content-center mb-4">
+            <!-- Tabs Component -->
+            <div class="col-12 text-center">
+                <app-tabs [tabList]="['CityList', 'Employee Table']" (onTabClick)="onTabChange($event)"></app-tabs>
+            </div>
         </div>
-        <div class="col-3 m-4">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Srno</th>
-                        <th>FirstName</th>
-                        <th>LastName</th>
-                        <th>City</th>
-                        <th>ContactNo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of empArray; let srno = index">
-                        <td>{{srno + 1}}</td>
-                        <td>{{item.fname}}</td>
-                        <td>{{item.lname}}</td>
-                        <td>{{item.city}}</td>
-                        <td>{{item.contactno}}</td>
-                    </tr>
-                </tbody>
-            </table>
+
+        <div class="row justify-content-center">
+            @if (currentTab === 'CityList') {
+            <!-- City List Column -->
+            <div class="col-md-6 col-lg-4">
+                <h6 class="mb-3">City List</h6>
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let item of cityList">{{ item }}</li>
+                </ul>
+            </div>
+            }
+            @else {
+            <!-- Employee Table Column -->
+            <div class="col-12">
+                <h5 class="mb-3">Attendance is a reusable component. Check the reusable component section.</h5>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped text-center">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Sr No</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>City</th>
+                                <th>Contact No</th>
+                                <th>Attendance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of empArray; let srno = index">
+                                <td>{{ srno + 1 }}</td>
+                                <td>{{ item.fname }}</td>
+                                <td>{{ item.lname }}</td>
+                                <td>{{ item.city }}</td>
+                                <td>{{ item.contactno }}</td>
+                                <td>
+                                    <app-progressbar [progressValue]="item.attendence">%</app-progressbar>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            }
         </div>
     </div>
-
 
 </div>

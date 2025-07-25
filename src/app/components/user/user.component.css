@@ -1,3 +1,6 @@
-.user-bg{
+.user-bg {
     background-color: rgb(219, 235, 249);
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
 }

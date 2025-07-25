@@ -2,11 +2,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ProgressbarComponent } from "../../resuable-components/progressbar/progressbar.component";
+import { TabsComponent } from "../../resuable-components/tabs/tabs.component";
 
 //Component decorater [configuration of the class]
 @Component({
   selector: 'app-data-binding',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ProgressbarComponent, TabsComponent],
   templateUrl: './data-binding.component.html',
   styleUrl: './data-binding.component.css'
 })
@@ -26,7 +28,7 @@ export class DataBindingComponent {
 
   //properties of the class.
   id: number = 1;
-  firstName: string = 'Aaman';
+  firstName: string = 'Franky';
   lastName: string = "gupta"
   isActive: boolean = true;
   currentDate: Date = new Date();
@@ -37,12 +39,12 @@ export class DataBindingComponent {
 
   cityList: string[] = ["Surat", "Ahmedbad", "Pune", "Jaipur", "Rajkot"]
   empArray: any[] = [
-    { id: 1, fname: "Raj", lname: "Patel", city: "Surat", contactno: 9999955588 },
-    { id: 2, fname: "Rajesh", lname: "Patel", city: "Rajkot", contactno: 9999955588 },
-    { id: 3, fname: "Suresh", lname: "Patel", city: "Jaipur", contactno: 9999955588 },
-    { id: 4, fname: "Suraj", lname: "Patel", city: "Rajkot", contactno: 9999955588 },
-    { id: 5, fname: "Ganesh", lname: "Patel", city: "Jaipur", contactno: 9999955588 },
-    { id: 6, fname: "Amit", lname: "Patel", city: "Ahmedbad", contactno: 9999955588 },
+    { id: 1, fname: "Raj", lname: "Patel", city: "Surat", contactno: 9999955588, attendence: 20 },
+    { id: 2, fname: "Rajesh", lname: "Patel", city: "Rajkot", contactno: 9999955588, attendence: 56 },
+    { id: 3, fname: "Suresh", lname: "Patel", city: "Jaipur", contactno: 9999955588, attendence: 50 },
+    { id: 4, fname: "Suraj", lname: "Patel", city: "Rajkot", contactno: 9999955588, attendence: 70 },
+    { id: 5, fname: "Ganesh", lname: "Patel", city: "Jaipur", contactno: 9999955588, attendence: 80 },
+    { id: 6, fname: "Amit", lname: "Patel", city: "Ahmedbad", contactno: 9999955588, attendence: 40 },
   ]
   // hide/show div
   isDivHide: boolean = true;
@@ -71,5 +73,11 @@ export class DataBindingComponent {
   hidediv() {
     this.isDivHide = false;
     this.divHiddenMsg = "Div is hidden";
+  }
+
+  // Method to handle tab change event [using @Output EventEmitter {check tabs component and databinding component}]
+  currentTab: string = 'CityList';
+  onTabChange(tabName: string) {
+    this.currentTab = tabName;
   }
 }

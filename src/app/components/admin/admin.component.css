@@ -1,4 +1,6 @@
-.admin-bg{
+.admin-bg {
     background-color: rgb(214, 252, 239);
     margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
 }

@@ -1,5 +1,18 @@
 <div class="container">
-    <h1 class="admin-bg">Admin works!</h1>
+    <div>
+        <h1 class="admin-bg">Admin works!</h1>
+        <button class="btn btn-primary" type="button" routerLink="/user">GOTO User Page</button>
+    </div>
 
-    <button class="btn btn-primary" type="button" routerLink="/user">GOTO User Page</button>
+    <div class="row">
+        <h4>This component is also used for &#64;Input and &#64;Output and EventEmitter topics</h4>
+        <h5>Admin as parent</h5>
+        <b>also check databinding component</b> &nbsp;
+        <a routerLink="/databinding">data-binding</a>
+
+        <div class="col-3">
+
+            <app-progressbar [progressValue]="40"></app-progressbar>
+        </div>
+    </div>
 </div>
