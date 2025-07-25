@@ -1,0 +1,53 @@
+<div class="container">
+    <h4>Angular Common Components </h4>
+    <h3><code>Pipe: &#123;objvar &#124; UpperCase&#125;</code></h3>
+    <div class="row">
+        <div class="col-3">
+            <code><h4>1. UpperCasePipe</h4> </code>
+            <p> Course Name => {{courseName}}</p>
+            <p> TitleCase => {{courseName | titlecase}}</p>
+            <p> UpperCase => {{courseName | uppercase}}</p>
+            <p> LowerCase => {{courseName | lowercase}}</p>
+
+            <code> <h4> 2. Date Pipe [datevar &#124; Date]</h4></code>
+            <p>Current Date obj => {{currentDate}}</p>
+            <p>Current Date dateonly => {{currentDate | date}}</p>
+            <p>Current Date formated => {{currentDate | date: 'dd-MMM-yy'}}</p> <!-- date format -->
+            <p>Current Date => {{currentDate | date: 'dd/MMMM/yyyy - hh:mm:ss'}}</p> <!-- date format -->
+            <p>Current Date => {{currentDate | date: 'dd-MMM-yy'}}</p> <!-- date format -->
+        </div>
+        <div class="col-3">
+            <code><h4>3. Json Pipe &#123; &#123; userobj &#124; json &#125;&#125;</h4></code>
+            <h6>If we directly use the studentObj, it will return [object | object].
+                so use the json pipe to convert it into a string.
+            </h6>
+            <p> UserObj => {{studentObj}}</p>
+            <p> UserObj => {{studentObj | json}}</p>
+        </div>
+        <div class="col-3">
+            <code><h4>Custom Pipe &#123;obj&#124;na&#125;</h4></code>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr class="text-center">
+                        <th>Srno</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <tr *ngFor="let emp of employeeArray; let i = index">
+                        <td> {{i +1}}</td>
+                        <td> {{emp.name | na}}</td>
+                        <td> {{emp.age}}</td>
+                        <td> {{emp.city | uppercase}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+</div>

@@ -71,6 +71,10 @@
               <a class="nav-link" routerLink="/reactiveform" routerLinkActive="active" [ngStyle]="{'color': linkColor}"
                 (click)="routerLinkColor('darkgreen')">Reactive-Form</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/resourceapis" routerLinkActive="active" [ngStyle]="{'color': linkColor}"
+                (click)="routerLinkColor('darkgreen')">Resources-Apis</a>
+            </li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -90,10 +94,21 @@
             <li><a class="dropdown-item" href="#">DELETE</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/resourceapis" routerLinkActive="active" [ngStyle]="{'color': linkColor}"
-            (click)="routerLinkColor('darkgreen')">Resources-Apis</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Common-Components
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/commoncomponents" [ngStyle]="{'color': linkColor}"
+                (click)="routerLinkColor('darkblue')">Common Components (pipe,etc..)</a></li>
+            <li><a class="dropdown-item" routerLink="/..." [ngStyle]="{'color': linkColor}"
+                (click)="routerLinkColor('darkyellow')">...</a> </li>
+            <li><a class="dropdown-item" routerLink="/angularservices" [ngStyle]="{'color': linkColor}"
+                (click)="routerLinkColor('blue')">...</a></li>
+            <li><a class="dropdown-item" href="#">...</a></li>
+          </ul>
         </li>
+
       </ul>
     </div>
   </div>

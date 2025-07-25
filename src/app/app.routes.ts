@@ -14,6 +14,7 @@ import { APIComponent } from './components/api/api.component';
 import { PostapiComponent } from './components/postapi/postapi.component';
 import { ResourcesApisComponent } from './components/resources-apis/resources-apis.component';
 import { AngularServiceComponent } from './components/api/angular-service/angular-service.component';
+import { CommonComponentsComponent } from './components/common-components/common-components.component';
 
 export const routes: Routes = [
 
@@ -33,4 +34,5 @@ export const routes: Routes = [
   { path: 'postapi', component: PostapiComponent },
   { path: 'resourceapis', component: ResourcesApisComponent },
   { path: 'angularservices', component: AngularServiceComponent },
+  { path: 'commoncomponents', component: CommonComponentsComponent },
 ];
