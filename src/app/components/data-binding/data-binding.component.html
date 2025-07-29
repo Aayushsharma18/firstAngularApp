@@ -30,6 +30,15 @@
 
                     <div class="mt-2">Selected City: <strong>{{selectedCity}}</strong></div>
                 </div>
+
+                <hr>
+                <div>
+                    <!-- ViewChild component -->
+                    <h6>ViewChild Component </h6>
+                    <p>ViewChild concept is similar to getElementById() of javascript.</p>
+                    <input type="text" #txtCity class="form-control mb-2" placeholder="Enter text " />
+                    <button class="btn btn-primary" (click)="readCity()">Submit</button> <span>{{txtCity.value}}</span>
+                </div>
             </div>
 
             <!-- Input Fields Section -->

@@ -8,29 +8,15 @@ import { CommonModule, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, CommonModule, NgStyle],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
 
-  constructor(private router: Router) {
+  constructor() {
 
 
-  }
 
-  title = 'firstAngularApp';
-  linkColor: string = "";
-
-  routerLinkColor(color: string) {
-    this.linkColor = color;
-  };
-
-  gotoAdmin() {
-    this.router.navigateByUrl("/admin");
-  };
-
-  gotoUser() {
-    this.router.navigateByUrl('/user');
   }
 }

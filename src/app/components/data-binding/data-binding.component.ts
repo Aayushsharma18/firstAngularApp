@@ -1,6 +1,6 @@
 //imports same as usings in c#.
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProgressbarComponent } from "../../resuable-components/progressbar/progressbar.component";
 import { TabsComponent } from "../../resuable-components/tabs/tabs.component";
@@ -21,9 +21,30 @@ export class DataBindingComponent {
 
     //this will call the function on page load.
     // this.View();
-    console.log(this.cityList);
-    console.log(this.empArray);
+    // console.log(this.cityList);
+    // console.log(this.empArray);
 
+  }
+
+
+  //ViewChild is used to access the child component or element in the parent component.
+  // It allows you to get a reference to a child component or element in the template.
+  //it is similar to getElementById() in JavaScript.
+  // Example: Accessing a child component or element using ViewChild
+
+  // ViewChild to access child component
+  @ViewChild("txtCity") cityTextbox: ElementRef | any;
+
+  //viewChild for resuable component
+  @ViewChild(TabsComponent) tabviewChild: TabsComponent | any;
+
+  readCity() {
+    const cityName = this.cityTextbox.nativeElement.value;
+    console.log("City Name: ", cityName);
+
+    // debugger;
+    const tabName = this.tabviewChild.nativeElement.activeTab;
+    console.log("Active Tab: ", tabName);
   }
 
   //properties of the class.
@@ -80,4 +101,6 @@ export class DataBindingComponent {
   onTabChange(tabName: string) {
     this.currentTab = tabName;
   }
+
+
 }

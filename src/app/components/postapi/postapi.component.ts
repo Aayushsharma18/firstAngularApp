@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Car, ICarList } from './car';
 
 @Component({
   selector: 'app-postapi',
@@ -10,9 +11,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class PostapiComponent {
 
-  carlist: any[] = [];
+  carlist: ICarList[] = [];
   http = inject(HttpClient);
-  car: any = {
+  car: Car = {
     "carId": 0,
     "brand": "",
     "model": "",

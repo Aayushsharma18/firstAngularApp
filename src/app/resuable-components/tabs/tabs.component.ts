@@ -14,7 +14,7 @@ export class TabsComponent implements OnInit {
   // and the component will render buttons for each tab.
   @Input() tabList: string[] = [];
 
-  @Output() onTabClick = new EventEmitter<string>(); //now this variable has become an event emitter
+  @Output() onTabClick = new EventEmitter<string>(); //now this variable has become an event emitter  
   // This will emit the name of the tab when clicked.
   // This allows the parent component to listen for tab click events.
 
